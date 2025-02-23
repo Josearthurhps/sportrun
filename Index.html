@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Sport Run</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Sport Run</h1>
+  </header>
+  <div class="container">
+    <!-- Seção: Participantes e Cadastro -->
+    <section id="participant-section">
+      <h2>Participantes</h2>
+      <div class="flex">
+        <input type="text" id="searchInput" placeholder="Pesquisar participante...">
+        <button onclick="searchParticipant()">Pesquisar</button>
+      </div>
+      <table id="participantTable">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Número</th>
+            <th>Kit</th>
+            <th>Tamanho Camiseta</th>
+            <th>Gênero</th>
+            <th>Tempo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Linhas serão geradas dinamicamente -->
+        </tbody>
+      </table>
+      <h3>Adicionar Participante</h3>
+      <div class="flex">
+        <input type="text" id="newName" placeholder="Nome">
+        <input type="text" id="newNumber" placeholder="Número">
+        <input type="text" id="newKit" placeholder="Kit (opcional)">
+        <input type="text" id="newTshirt" placeholder="Tamanho Camiseta (opcional)">
+        <select id="newGender">
+          <option value="Feminino">Feminino</option>
+          <option value="Masculino">Masculino</option>
+        </select>
+        <button onclick="addParticipant()">Adicionar</button>
+      </div>
+    </section>
+    
+    <!-- Seção: Cronômetro e Registro de Tempo -->
+    <section id="stopwatch-section">
+      <h2>Cronômetro</h2>
+      <div class="stopwatch" id="display">00:00:00</div>
+      <div class="flex">
+        <button onclick="startStopwatch()">Iniciar</button>
+        <button onclick="stopStopwatch()">Parar</button>
+        <button onclick="resetStopwatch()">Resetar Cronômetro</button>
+      </div>
+      <h3>Registrar Tempo do Corredor</h3>
+      <div class="flex">
+        <input type="text" id="runnerNumber" placeholder="Número do corredor">
+        <button onclick="registerTime()">Registrar Tempo</button>
+      </div>
+    </section>
+    
+    <!-- Seção: Gerar Planilha Excel -->
+    <section id="excel-section">
+      <button onclick="generateExcel()">Gerar Planilha Excel</button>
+    </section>
+    
+    <!-- Seção: Resetar Página -->
+    <section id="reset-section">
+      <button onclick="resetAll()">Resetar Página</button>
+    </section>
+  </div>
+  
+  <!-- Biblioteca XLSX para exportar para Excel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
